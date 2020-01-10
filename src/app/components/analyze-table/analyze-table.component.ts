@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-analyze-table',
@@ -7,16 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnalyzeTableComponent implements OnInit {
 
-  ELEMENT_DATA: any[] = [
-    {polarity: 'neutral', subjectivity: 'subjective', text: '...', polarity_confidence: 0.762665271590332, subjectivity_confidence: 1.0},
-  ];
+  @Input() analyzeData;
   displayedColumns: string[] = ['polarity', 'subjectivity', 'text', 'polarity_confidence', 'subjectivity_confidence'];
-  dataSource = this.ELEMENT_DATA;
+  dataSource;
   constructor() {
 
   }
 
   ngOnInit() {
+    this.dataSource = this.analyzeData;
   }
 
 

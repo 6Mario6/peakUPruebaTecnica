@@ -9,8 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'analyzer-url';
   table = false;
-
+  responseAnalyze;
   showTable(event) {
     this.table = event;
+  }
+  getAnalyze(event) {
+    this.responseAnalyze = event;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { AnalyzeService } from 'src/app/services/analyze.service';
 
 @Component({
   selector: 'app-url-input',
@@ -10,7 +11,9 @@ export class UrlInputComponent implements OnInit {
   public urlForm: FormGroup;
   public showError = false;
   @Output() showTable = new EventEmitter();
-  constructor(private fb: FormBuilder) {
+  @Output() responseAnalyze = new EventEmitter();
+
+  constructor(private fb: FormBuilder, private analyzeService: AnalyzeService) {
     this.initForm();
   }
 
@@ -26,7 +29,7 @@ export class UrlInputComponent implements OnInit {
   analyzeURL() {
     if (this.urlForm.valid) {
       this.showError = false;
-      this.showTable.emit(true);
+      this.getAnalyze();
     } else {
       this.showError = true;
       this.showTable.emit(false);
@@ -38,5 +41,14 @@ export class UrlInputComponent implements OnInit {
     this.showError = false;
     this.showTable.emit(false);
   }
+
+  getAnalyze() {
+    this.analyzeService.get().subscribe(res => {
+      this.responseAnalyze.emit(res);
+      this.showTable.emit(true);
+    });
+  }
+
+
 
 }

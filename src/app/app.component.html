@@ -2,8 +2,8 @@
   <div class="square-container">
     <h1>Welcome to url analyzer</h1>
     <div>
-      <app-url-input (showTable) = showTable($event)></app-url-input>
+      <app-url-input (showTable) = showTable($event) (responseAnalyze) = getAnalyze($event);></app-url-input>
     </div>
-    <app-analyze-table *ngIf="table"></app-analyze-table>
+    <app-analyze-table [analyzeData]="responseAnalyze" *ngIf="table"></app-analyze-table>
   </div>
 </div>
