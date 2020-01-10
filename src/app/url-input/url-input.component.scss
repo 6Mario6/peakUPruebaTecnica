@@ -17,5 +17,16 @@
       margin-right: 15px;
     }
   }
+
+  .url-invalid{
+    width: 100%;
+    text-align: center;
+    p {
+      margin: 0px 0 15px;
+      color:red;
+      font-weight: bold;
+    }
+  }
+
 }
 

@@ -1,8 +1,11 @@
 <form [formGroup]="urlForm" class="input-container">
   <mat-form-field>
-    <input formControlName="url" matInput placeholder="Pass your URL from articles Here:" autocomplete="off">
+    <input formControlName="url" matInput placeholder="Pass your URL http or https from articles Here:" autocomplete="off">
   </mat-form-field>
 </form>
+<div *ngIf="showError" class="url-invalid">
+  <p>URL invalid!</p>
+</div>
 <div class="btn-container">
   <button (click) = "clearURL()"  mat-flat-button>Clear</button>
   <button (click) = "analyzeURL()" mat-flat-button color="primary">Analyze!</button>

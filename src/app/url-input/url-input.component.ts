@@ -8,6 +8,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class UrlInputComponent implements OnInit {
   public urlForm: FormGroup;
+  public showError = false;
   @Output() showTable = new EventEmitter();
   constructor(private fb: FormBuilder) {
     this.initForm();
@@ -24,14 +25,18 @@ export class UrlInputComponent implements OnInit {
 
   analyzeURL() {
     if (this.urlForm.valid) {
+      this.showError = false;
       this.showTable.emit(true);
     } else {
-
+      this.showError = true;
+      this.showTable.emit(false);
     }
   }
 
   clearURL() {
     this.urlForm.reset();
+    this.showError = false;
+    this.showTable.emit(false);
   }
 
 }

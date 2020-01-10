@@ -15,3 +15,12 @@
 :host .btn-container button:first-child {
   margin-right: 15px;
 }
+:host .url-invalid {
+  width: 100%;
+  text-align: center;
+}
+:host .url-invalid p {
+  margin: 0px 0 15px;
+  color: red;
+  font-weight: bold;
+}
