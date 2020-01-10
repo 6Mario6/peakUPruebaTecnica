@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class UrlInputComponent implements OnInit {
   public urlForm: FormGroup;
+  @Output() showTable = new EventEmitter();
   constructor(private fb: FormBuilder) {
     this.initForm();
   }
@@ -22,7 +23,11 @@ export class UrlInputComponent implements OnInit {
   }
 
   analyzeURL() {
+    if (this.urlForm.valid) {
+      this.showTable.emit(true);
+    } else {
 
+    }
   }
 
   clearURL() {
