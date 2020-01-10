@@ -1,0 +1,11 @@
+<form [formGroup]="urlForm" class="input-container">
+  <mat-form-field>
+    <input formControlName="url" matInput placeholder="Pass your URL from articles Here:" autocomplete="off">
+  </mat-form-field>
+</form>
+<div class="btn-container">
+  <button (click) = "clearURL()"  mat-flat-button>Clear</button>
+  <button (click) = "analyzeURL()" mat-flat-button color="primary">Analyze!</button>
+</div>
+
+<app-analyze-table></app-analyze-table>

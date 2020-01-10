@@ -1,0 +1,31 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="polarity">
+    <th mat-header-cell *matHeaderCellDef> Polarity </th>
+    <td mat-cell *matCellDef="let element"> {{element.polarity}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="subjectivity">
+    <th mat-header-cell *matHeaderCellDef> Subjectivity </th>
+    <td mat-cell *matCellDef="let element"> {{element.subjectivity}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="text">
+    <th mat-header-cell *matHeaderCellDef> Text </th>
+    <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="polarity_confidence">
+    <th mat-header-cell *matHeaderCellDef> Polarity confidence </th>
+    <td mat-cell *matCellDef="let element"> {{element.polarity_confidence}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="subjectivity_confidence">
+    <th mat-header-cell *matHeaderCellDef> Subjectivity confidence </th>
+    <td mat-cell *matCellDef="let element"> {{element.subjectivity_confidence}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

@@ -1,0 +1,17 @@
+:host mat-form-field {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+:host .btn-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:host .btn-container button {
+  min-width: 90px;
+}
+:host .btn-container button:first-child {
+  margin-right: 15px;
+}

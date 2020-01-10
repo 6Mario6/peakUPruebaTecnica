@@ -1,0 +1,21 @@
+:host {
+  mat-form-field {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .btn-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+      min-width: 90px;
+    }
+    button:first-child {
+      margin-right: 15px;
+    }
+  }
+}
+
