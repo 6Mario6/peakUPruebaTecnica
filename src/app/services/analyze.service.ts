@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class AnalyzeService {
@@ -12,9 +14,14 @@ export class AnalyzeService {
       subjectivity_confidence: 1.0
     }
   ];
-  constructor() {}
+
+  constructor(private http: HttpClient) {}
 
   get() {
     return of(this.dataSource);
+  }
+
+  getAnalyze() {
+    return this.http.get('https://api.aylien.com/api/v1/sentiment').pipe(map((response: any) => response));
   }
 }
